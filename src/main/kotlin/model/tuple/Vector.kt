@@ -20,4 +20,9 @@ data class Vector(
     }
 
     fun magnitude(): Double = sqrt(x * x + y * y + z * z)
+
+    fun normalize(): Vector {
+        val magnitude = magnitude()
+        return Vector(x / magnitude, y / magnitude, z / magnitude)
+    }
 }
