@@ -27,4 +27,10 @@ data class Vector(
     }
 
     fun dot(other: Vector): Double = x * other.x + y * other.y + z * other.z
+
+    fun cross(other: Vector): Vector = Vector(
+        y * other.z - z * other.y,
+        z * other.x - x * other.z,
+        x * other.y - y * other.x
+    )
 }
