@@ -1,6 +1,7 @@
 package model.tuple
 
 import util.Util
+import kotlin.math.sqrt
 
 data class Vector(
     override val x: Double,
@@ -17,4 +18,6 @@ data class Vector(
         result = 31 * result + w.hashCode()
         return result
     }
+
+    fun magnitude(): Double = sqrt(x * x + y * y + z * z)
 }
