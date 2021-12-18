@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="NegationTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-12-18T02:24:45" hostname="MLPLCH201SAJGH5" time="0.027">
+  <properties/>
+  <testcase name="-tVector()" classname="NegationTest" time="0.021"/>
+  <testcase name="ERROR -point()" classname="NegationTest" time="0.002"/>
+  <testcase name="-vector()" classname="NegationTest" time="0.001"/>
+  <testcase name="ERROR -tPoint()" classname="NegationTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

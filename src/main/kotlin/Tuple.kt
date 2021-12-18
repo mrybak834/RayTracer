@@ -29,4 +29,10 @@ open class Tuple(
         assert(!(w == 0.0 && other.w == 1.0)) { "Cannot subtract a point from a vector" }
         return Tuple(x - other.x, y - other.y, z - other.z, w - other.w)
     }
+
+    operator fun unaryMinus(): Tuple {
+        assert(w != 1.0) { "Cannot negate a point" }
+        return Tuple(-x, -y, -z, -w)
+    }
+
 }
