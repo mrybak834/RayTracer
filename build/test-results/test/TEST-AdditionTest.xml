@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AdditionTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-12-18T03:01:10" hostname="MLPLCH201SAJGH5" time="0.027">
+  <properties/>
+  <testcase name="vector + vector = vector()" classname="AdditionTest" time="0.02"/>
+  <testcase name="ERROR point + point()" classname="AdditionTest" time="0.002"/>
+  <testcase name="tVector + tVector = tVector()" classname="AdditionTest" time="0.0"/>
+  <testcase name="ERROR tPoint + tPoint()" classname="AdditionTest" time="0.001"/>
+  <testcase name="point + vector = point()" classname="AdditionTest" time="0.001"/>
+  <testcase name="tPoint + tVector = tPoint()" classname="AdditionTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

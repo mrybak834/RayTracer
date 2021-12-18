@@ -21,18 +21,24 @@ open class Tuple(
     }
 
     operator fun plus(other: Tuple): Tuple {
-        assert(!(w == 1.0 && other.w == 1.0)) { "Cannot add two points" }
+        assert(!(isPoint() && other.isPoint())) { "Cannot add two points" }
         return Tuple(x + other.x, y + other.y, z + other.z, w + other.w)
     }
 
     operator fun minus(other: Tuple): Tuple {
-        assert(!(w == 0.0 && other.w == 1.0)) { "Cannot subtract a point from a vector" }
+        assert(!(isVector() && other.isPoint())) { "Cannot subtract a point from a vector" }
         return Tuple(x - other.x, y - other.y, z - other.z, w - other.w)
     }
 
     operator fun unaryMinus(): Tuple {
-        assert(w != 1.0) { "Cannot negate a point" }
+        assert(!isPoint()) { "Cannot negate a point" }
         return Tuple(-x, -y, -z, -w)
     }
 
+    operator fun times(scalar: Double): Tuple {
+        assert(!isPoint()) { "Cannot multiply a point" }
+        return Tuple(x * scalar, y * scalar, z * scalar, w * scalar)
+    }
 }
+
+operator fun Double.times(other: Tuple): Tuple = other * this

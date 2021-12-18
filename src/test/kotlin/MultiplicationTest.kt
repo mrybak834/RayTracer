@@ -1,0 +1,38 @@
+import org.junit.jupiter.api.Test
+
+import org.junit.jupiter.api.Assertions.*
+
+class MultiplicationTest {
+
+    @Test
+    fun `tVector x scalar = tVector`() {
+        val a = Tuple(1.0, -2.0, 3.0, 0.0)
+        val scalar = 3.5
+        assertTrue(a * scalar == Tuple(3.5, -7.0, 10.5, 0.0))
+        assertTrue(scalar * a == Tuple(3.5, -7.0, 10.5, 0.0))
+    }
+
+    @Test
+    fun `vector x scalar = vector`() {
+        val a = Vector(1.0, -2.0, 3.0)
+        val scalar = 3.5
+        assertTrue(a * scalar == Vector(3.5, -7.0, 10.5))
+        assertTrue(scalar * a == Vector(3.5, -7.0, 10.5))
+    }
+
+    @Test
+    fun `ERROR tPoint x scalar`() {
+        val a = Tuple(1.0, -2.0, 3.0, 1.0)
+        val scalar = 3.5
+        assertThrows(AssertionError::class.java) { a * scalar }
+        assertThrows(AssertionError::class.java) { scalar * a }
+    }
+
+    @Test
+    fun `ERROR -point x scalar`() {
+        val a = Point(-1.0, 2.0, -3.0)
+        val scalar = 3.5
+        assertThrows(AssertionError::class.java) { a * scalar }
+        assertThrows(AssertionError::class.java) { scalar * a }
+    }
+}
