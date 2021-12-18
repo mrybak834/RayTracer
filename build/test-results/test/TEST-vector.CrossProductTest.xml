@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="vector.CrossProductTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-12-18T21:02:14" hostname="mrybak834-Z590I-AORUS-ULTRA" time="0.0">
+  <properties/>
+  <testcase name="cross product()" classname="vector.CrossProductTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

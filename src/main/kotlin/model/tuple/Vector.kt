@@ -1,5 +1,7 @@
 package model.tuple
 
+import model.tuple.Point.Companion.toPoint
+import model.tuple.Vector.Companion.toVector
 import util.Util
 import kotlin.math.sqrt
 
@@ -8,24 +10,19 @@ data class Vector(
     override val y: Double,
     override val z: Double
 ) : Tuple(x, y, z, 0.0) {
-    override fun equals(other: Any?) =
-        if (other is Tuple) Util.equals(x, other.x) && Util.equals(y, other.y) && Util.equals(z, other.z) && Util.equals(w, other.w) else false
-
-    override fun hashCode(): Int {
-        var result = x.hashCode()
-        result = 31 * result + y.hashCode()
-        result = 31 * result + z.hashCode()
-        result = 31 * result + w.hashCode()
-        return result
+    companion object{
+        fun toVector(other: Tuple) = Vector(other.x, other.y, other.z)
     }
+    override fun equals(other: Any?) = super.equals(other)
+    override fun hashCode() = super.hashCode()
 
-    operator fun plus(other: Vector) = Vector(x + other.x, y + other.y, z + other.z)
-    operator fun plus(other: Point) = Point(x + other.x, y + other.y, z + other.z)
-    operator fun minus(other: Vector): Vector = Vector(x - other.x, y - other.y, z - other.z)
-    operator fun minus(other: Point): Vector = throw IllegalArgumentException("Cannot subtract a point from a vector")
-    override operator fun unaryMinus() = Vector(-x, -y, -z)
-    override operator fun times(scalar: Double) = Vector(x * scalar, y * scalar, z * scalar)
-    override operator fun div(scalar: Double) = Vector(x / scalar, y / scalar, z / scalar)
+    override operator fun plus(other: Tuple) = toPoint(super.plus(other))
+    operator fun plus(other: Vector) = toVector(super.plus(other))
+    operator fun plus(other: Point) = toPoint(super.plus(other))
+    override operator fun minus(other: Tuple) = toVector(super.minus(other))
+    override operator fun unaryMinus() = toVector(super.unaryMinus())
+    override operator fun times(scalar: Double) = toVector(super.times(scalar))
+    override operator fun div(scalar: Double) = toVector(super.div(scalar))
 
 
     fun magnitude(): Double = sqrt(x * x + y * y + z * z)
@@ -43,5 +40,5 @@ data class Vector(
         x * other.y - y * other.x
     )
 }
-operator fun Double.times(other: Vector) = other * this
-operator fun Double.div(other: Vector) = Vector(this / other.x, this / other.y, this / other.z)
+operator fun Double.times(other: Vector) = toVector(this.times(other as Tuple))
+operator fun Double.div(other: Vector) = toVector(this.div(other as Tuple))

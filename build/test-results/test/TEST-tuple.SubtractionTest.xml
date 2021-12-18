@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tuple.SubtractionTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2021-12-18T21:02:14" hostname="mrybak834-Z590I-AORUS-ULTRA" time="0.005">
+  <properties/>
+  <testcase name="tVector - tVector = tVector()" classname="tuple.SubtractionTest" time="0.001"/>
+  <testcase name="ERROR vector - point()" classname="tuple.SubtractionTest" time="0.001"/>
+  <testcase name="ERROR tVector - tPoint()" classname="tuple.SubtractionTest" time="0.0"/>
+  <testcase name="tPoint - tPoint = tVector()" classname="tuple.SubtractionTest" time="0.0"/>
+  <testcase name="tPoint - tVector = tPoint()" classname="tuple.SubtractionTest" time="0.0"/>
+  <testcase name="point - vector = point()" classname="tuple.SubtractionTest" time="0.0"/>
+  <testcase name="vector - vector = vector()" classname="tuple.SubtractionTest" time="0.001"/>
+  <testcase name="point - point = vector()" classname="tuple.SubtractionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

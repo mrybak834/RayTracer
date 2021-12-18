@@ -22,20 +22,18 @@ open class Tuple(
         return result
     }
 
-    operator fun plus(other: Tuple): Tuple {
+    open operator fun plus(other: Tuple): Tuple {
         assert(!(isPoint() && other.isPoint())) { throw IllegalArgumentException("Cannot add two points") }
         return Tuple(x + other.x, y + other.y, z + other.z, w + other.w)
     }
 
-    operator fun minus(other: Tuple): Tuple {
+    open operator fun minus(other: Tuple): Tuple {
         assert(!(isVector() && other.isPoint())) { throw IllegalArgumentException("Cannot subtract a point from a vector") }
         return Tuple(x - other.x, y - other.y, z - other.z, w - other.w)
     }
 
     open operator fun unaryMinus() = Tuple(-x, -y, -z, w)
-
     open operator fun times(scalar: Double) = Tuple(x * scalar, y * scalar, z * scalar, w)
-
     open operator fun div(scalar: Double) = Tuple(x / scalar, y / scalar, z / scalar, w)
 
 }

@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="projects.ProjectilesTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-12-18T06:56:37" hostname="MLPLCH201SAJGH5" time="0.021">
+<testsuite name="projects.ProjectilesTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-12-18T21:02:14" hostname="mrybak834-Z590I-AORUS-ULTRA" time="0.003">
   <properties/>
-  <testcase name="projectiles()" classname="projects.ProjectilesTest" time="0.021"/>
+  <testcase name="projectiles()" classname="projects.ProjectilesTest" time="0.003"/>
   <system-out><![CDATA[Position after 1 ticks: Point(x=0.31622776601683794, y=1.9486832980505138, z=0.0)
-Position after 2 ticks: Point(x=0.6224555320336759, y=2.2973665961010274, z=0.0)
-Position after 3 ticks: Point(x=0.9186832980505137, y=2.0460498941515413, z=0.0)
-Position after 4 ticks: Point(x=1.2049110640673517, y=1.194733192202055, z=0.0)
-Position after 5 ticks: Point(x=1.4811388300841897, y=-0.25658350974743116, z=0.0)
+Position after 2 ticks: Point(x=0.6224555320336759, y=2.697366596101028, z=0.0)
+Position after 3 ticks: Point(x=0.9186832980505137, y=3.2460498941515414, z=0.0)
+Position after 4 ticks: Point(x=1.2049110640673517, y=3.5947331922020553, z=0.0)
+Position after 5 ticks: Point(x=1.4811388300841897, y=3.743416490252569, z=0.0)
+Position after 6 ticks: Point(x=1.7473665961010276, y=3.692099788303083, z=0.0)
+Position after 7 ticks: Point(x=2.0035943621178656, y=3.440783086353597, z=0.0)
+Position after 8 ticks: Point(x=2.2498221281347033, y=2.9894663844041105, z=0.0)
+Position after 9 ticks: Point(x=2.486049894151541, y=2.3381496824546244, z=0.0)
+Position after 10 ticks: Point(x=2.712277660168379, y=1.4868329805051381, z=0.0)
+Position after 11 ticks: Point(x=2.928505426185217, y=0.4355162785556519, z=0.0)
+Position after 12 ticks: Point(x=3.1347331922020545, y=-0.8158004233938343, z=0.0)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
