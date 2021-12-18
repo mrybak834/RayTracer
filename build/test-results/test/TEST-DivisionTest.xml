@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="DivisionTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2021-12-18T03:37:39" hostname="MLPLCH201SAJGH5" time="0.007">
+  <properties/>
+  <testcase name="tVector div scalar = tVector()" classname="DivisionTest" time="0.0"/>
+  <testcase name="scalar div point = point()" classname="DivisionTest" time="0.001"/>
+  <testcase name="vector div scalar = vector()" classname="DivisionTest" time="0.0"/>
+  <testcase name="point div scalar = point()" classname="DivisionTest" time="0.0"/>
+  <testcase name="scalar div tVector = tVector()" classname="DivisionTest" time="0.001"/>
+  <testcase name="scalar div tPoint = tPoint()" classname="DivisionTest" time="0.0"/>
+  <testcase name="tPoint div scalar = tPoint()" classname="DivisionTest" time="0.0"/>
+  <testcase name="scalar div vector = vector()" classname="DivisionTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

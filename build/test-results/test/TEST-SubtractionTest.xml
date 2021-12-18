@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SubtractionTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2021-12-18T03:01:10" hostname="MLPLCH201SAJGH5" time="0.005">
+<testsuite name="SubtractionTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2021-12-18T03:37:39" hostname="MLPLCH201SAJGH5" time="0.006">
   <properties/>
   <testcase name="tVector - tVector = tVector()" classname="SubtractionTest" time="0.0"/>
-  <testcase name="ERROR vector - point()" classname="SubtractionTest" time="0.0"/>
-  <testcase name="ERROR tVector - tPoint()" classname="SubtractionTest" time="0.0"/>
-  <testcase name="tPoint - tPoint = tVector()" classname="SubtractionTest" time="0.0"/>
-  <testcase name="tPoint - tVector = tPoint()" classname="SubtractionTest" time="0.001"/>
+  <testcase name="ERROR vector - point()" classname="SubtractionTest" time="0.001"/>
+  <testcase name="ERROR tVector - tPoint()" classname="SubtractionTest" time="0.001"/>
+  <testcase name="tPoint - tPoint = tVector()" classname="SubtractionTest" time="0.001"/>
+  <testcase name="tPoint - tVector = tPoint()" classname="SubtractionTest" time="0.0"/>
   <testcase name="point - vector = point()" classname="SubtractionTest" time="0.0"/>
   <testcase name="vector - vector = vector()" classname="SubtractionTest" time="0.0"/>
   <testcase name="point - point = vector()" classname="SubtractionTest" time="0.0"/>

@@ -8,6 +8,7 @@ class NegationTest {
     fun `-tVector`() {
         val a = Tuple(1.0, -2.0, 3.0, 0.0)
         assertTrue(-a == Tuple(-1.0, 2.0, -3.0, 0.0))
+        assertTrue(-a == Vector(-1.0, 2.0, -3.0))
     }
 
     @Test
@@ -18,14 +19,16 @@ class NegationTest {
     }
 
     @Test
-    fun `ERROR -tPoint`() {
+    fun `-tPoint`() {
         val a = Tuple(1.0, -2.0, 3.0, 1.0)
-        assertThrows(AssertionError::class.java) { -a }
+        assertTrue(-a == Tuple(-1.0, 2.0, -3.0, 1.0))
+        assertTrue(-a == Point(-1.0, 2.0, -3.0))
     }
 
     @Test
-    fun `ERROR -point`() {
+    fun `-point`() {
         val a = Point(1.0, -2.0, 3.0)
-        assertThrows(AssertionError::class.java) { -a }
+        assertTrue(-a == Tuple(-1.0, 2.0, -3.0, 1.0))
+        assertTrue(-a == Point(-1.0, 2.0, -3.0))
     }
 }

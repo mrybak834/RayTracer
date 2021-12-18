@@ -30,15 +30,13 @@ open class Tuple(
         return Tuple(x - other.x, y - other.y, z - other.z, w - other.w)
     }
 
-    operator fun unaryMinus(): Tuple {
-        assert(!isPoint()) { "Cannot negate a point" }
-        return Tuple(-x, -y, -z, -w)
-    }
+    operator fun unaryMinus() = Tuple(-x, -y, -z, w)
 
-    operator fun times(scalar: Double): Tuple {
-        assert(!isPoint()) { "Cannot multiply a point" }
-        return Tuple(x * scalar, y * scalar, z * scalar, w * scalar)
-    }
+    operator fun times(scalar: Double) = Tuple(x * scalar, y * scalar, z * scalar, w)
+
+    operator fun div(scalar: Double) = Tuple(x / scalar, y / scalar, z / scalar, w)
+
 }
 
-operator fun Double.times(other: Tuple): Tuple = other * this
+operator fun Double.times(other: Tuple) = other * this
+operator fun Double.div(other: Tuple) = Tuple(this / other.x, this / other.y, this / other.z, other.w)

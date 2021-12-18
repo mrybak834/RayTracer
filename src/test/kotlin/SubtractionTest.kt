@@ -9,6 +9,7 @@ class SubtractionTest {
         val a = Tuple(1.0, 2.0, 3.0, 0.0)
         val b = Tuple(2.0, 3.0, 4.0, 0.0)
         assertTrue(a - b == Tuple(-1.0, -1.0, -1.0, 0.0))
+        assertTrue(a - b == Vector(-1.0, -1.0, -1.0))
     }
 
     @Test
@@ -16,6 +17,7 @@ class SubtractionTest {
         val a = Tuple(3.0, -2.0, 5.0, 1.0)
         val b = Tuple(-2.0, 3.0, 1.0, 0.0)
         assertTrue(a - b == Tuple(5.0, -5.0, 4.0, 1.0))
+        assertTrue(a - b == Point(5.0, -5.0, 4.0))
     }
 
     @Test
@@ -23,6 +25,7 @@ class SubtractionTest {
         val a = Tuple(3.0, -2.0, 5.0, 1.0)
         val b = Tuple(-2.0, 3.0, 1.0, 1.0)
         assertTrue(a - b == Tuple(5.0, -5.0, 4.0, 0.0))
+        assertTrue(a - b == Vector(5.0, -5.0, 4.0))
     }
 
     @Test
