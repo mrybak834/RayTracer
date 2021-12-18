@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
-class SubtractionTest {
+internal class SubtractionTest {
 
     @Test
     fun `tVector - tVector = tVector`() {

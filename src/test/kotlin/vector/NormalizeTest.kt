@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions.*
 import util.Util
 import kotlin.math.sqrt
 
-class NormalizeTest {
+internal class NormalizeTest {
 
     @Test
     fun `Normalize a vector`() {

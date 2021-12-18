@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 import java.lang.IllegalArgumentException
 
-class AdditionTest {
+internal class AdditionTest {
 
     @Test
     fun `tVector + tVector = tVector`() {

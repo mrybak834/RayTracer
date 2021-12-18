@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
-class DivisionTest {
+internal class DivisionTest {
 
     @Test
     fun `tVector div scalar = tVector`() {

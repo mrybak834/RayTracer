@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 import model.tuple.times
 
-class MultiplicationTest {
+internal class MultiplicationTest {
 
     @Test
     fun `tVector x scalar = tVector`() {

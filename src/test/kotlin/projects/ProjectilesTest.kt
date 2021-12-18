@@ -12,7 +12,7 @@ import projects.projectiles.tick
 import util.Util
 import kotlin.math.sqrt
 
-class ProjectilesTest {
+internal class ProjectilesTest {
 
     @Test
     fun `projectiles`() {

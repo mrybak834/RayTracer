@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions.*
 import util.Util
 import kotlin.math.sqrt
 
-class DotProductTest {
+internal class DotProductTest {
 
     @Test
     fun `dot product`() {

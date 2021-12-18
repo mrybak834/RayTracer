@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions.*
 import util.Util
 import kotlin.math.sqrt
 
-class CrossProductTest {
+internal class CrossProductTest {
 
     @Test
     fun `cross product`() {

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions.*
 import util.Util
 import kotlin.math.sqrt
 
-class MagnitudeTest {
+internal class MagnitudeTest {
 
     @Test
     fun `Magnitude of a vector`() {

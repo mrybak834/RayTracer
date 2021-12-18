@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
-class EqualsTest {
+internal class EqualsTest {
 
     @Test
     fun `tuple == tuple within error`() {
