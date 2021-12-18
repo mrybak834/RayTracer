@@ -1,23 +1,51 @@
-data class Tuple(
-    val x: Double,
-    val y: Double,
-    val z: Double,
-    val w: Double,
-    val isPoint: Boolean,
-    val isVector: Boolean
-)  {
+open class Tuple(
+    open val x: Double,
+    open val y: Double,
+    open val z: Double,
+    open val w: Double
+) {
+    fun isPoint() =  w == 1.0
+    fun isVector() = w == 0.0
+}
 
-    constructor(x: Double, y: Double, z: Double, w: Double) : this(x, y, z, w, w == 1.0, w == 0.0)
-
-
-
-    companion object {
-        fun point(x: Double, y: Double, z: Double): Tuple {
-            return Tuple(x, y, z, 1.0)
+data class Point(
+    override val x: Double,
+    override val y: Double,
+    override val z: Double
+) : Tuple(x, y, z, 1.0) {
+    override fun equals(other: Any?): Boolean {
+        if (other is Tuple) {
+            return x == other.x && y == other.y && z == other.z && w == other.w
         }
+        return false
+    }
 
-        fun vector(x: Double, y: Double, z: Double): Tuple {
-            return Tuple(x, y, z, 0.0)
+    override fun hashCode(): Int {
+        var result = x.hashCode()
+        result = 31 * result + y.hashCode()
+        result = 31 * result + z.hashCode()
+        result = 31 * result + w.hashCode()
+        return result
+    }
+}
+
+data class Vector(
+    override val x: Double,
+    override val y: Double,
+    override val z: Double
+) : Tuple(x, y, z, 0.0) {
+    override fun equals(other: Any?): Boolean {
+        if (other is Tuple) {
+            return x == other.x && y == other.y && z == other.z && w == other.w
         }
+        return false
+    }
+
+    override fun hashCode(): Int {
+        var result = x.hashCode()
+        result = 31 * result + y.hashCode()
+        result = 31 * result + z.hashCode()
+        result = 31 * result + w.hashCode()
+        return result
     }
 }
