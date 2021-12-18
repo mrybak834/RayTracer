@@ -50,5 +50,4 @@ internal class TupleTest {
         assertEquals(a.isVector(), true)
         assertTrue(a == Tuple(4.0, -4.0, 3.0, 0.0))
     }
-
 }
