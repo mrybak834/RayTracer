@@ -25,4 +25,6 @@ data class Vector(
         val magnitude = magnitude()
         return Vector(x / magnitude, y / magnitude, z / magnitude)
     }
+
+    fun dot(other: Vector): Double = x * other.x + y * other.y + z * other.z
 }
