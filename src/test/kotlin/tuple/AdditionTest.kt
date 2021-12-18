@@ -1,4 +1,4 @@
-package tuples
+package tuple
 
 import model.tuple.Point
 import model.tuple.Tuple

@@ -1,4 +1,4 @@
-package tuples
+package tuple
 
 import model.tuple.Tuple
 import org.junit.jupiter.api.Test
