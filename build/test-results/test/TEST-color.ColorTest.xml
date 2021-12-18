@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="color.ColorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-12-18T21:06:57" hostname="mrybak834-Z590I-AORUS-ULTRA" time="0.009">
+  <properties/>
+  <testcase name="Colors are r g b tuples()" classname="color.ColorTest" time="0.009"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
