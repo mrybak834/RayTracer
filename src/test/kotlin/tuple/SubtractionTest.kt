@@ -61,13 +61,13 @@ class SubtractionTest {
     fun `ERROR vector - point`() {
         val a = Vector(1.0, 2.0, 3.0)
         val b = Point(2.0, 3.0, 4.0)
-        assertThrows(AssertionError::class.java) { a - b }
+        assertThrows(IllegalArgumentException::class.java) { a - b }
     }
 
     @Test
     fun `ERROR tVector - tPoint`() {
         val a = Tuple(3.0, -2.0, 5.0, 0.0)
         val b = Tuple(-2.0, 3.0, 1.0, 1.0)
-        assertThrows(AssertionError::class.java) { a - b }
+        assertThrows(IllegalArgumentException::class.java) { a - b }
     }
 }

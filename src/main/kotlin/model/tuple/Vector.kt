@@ -19,6 +19,15 @@ data class Vector(
         return result
     }
 
+    operator fun plus(other: Vector) = Vector(x + other.x, y + other.y, z + other.z)
+    operator fun plus(other: Point) = Point(x + other.x, y + other.y, z + other.z)
+    operator fun minus(other: Vector): Vector = Vector(x - other.x, y - other.y, z - other.z)
+    operator fun minus(other: Point): Vector = throw IllegalArgumentException("Cannot subtract a point from a vector")
+    override operator fun unaryMinus() = Vector(-x, -y, -z)
+    override operator fun times(scalar: Double) = Vector(x * scalar, y * scalar, z * scalar)
+    override operator fun div(scalar: Double) = Vector(x / scalar, y / scalar, z / scalar)
+
+
     fun magnitude(): Double = sqrt(x * x + y * y + z * z)
 
     fun normalize(): Vector {
@@ -34,3 +43,5 @@ data class Vector(
         x * other.y - y * other.x
     )
 }
+operator fun Double.times(other: Vector) = other * this
+operator fun Double.div(other: Vector) = Vector(this / other.x, this / other.y, this / other.z)

@@ -6,6 +6,7 @@ import model.tuple.Vector
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
+import java.lang.IllegalArgumentException
 
 class AdditionTest {
 
@@ -42,16 +43,24 @@ class AdditionTest {
     }
 
     @Test
+    fun `vector + point = point`() {
+        val p = Point(3.0, -2.0, 5.0)
+        val v = Vector(-2.0, 3.0, 1.0)
+        assertTrue(v + p == Point(1.0, 1.0, 6.0))
+        assertTrue(v + p == Tuple(1.0, 1.0, 6.0, 1.0))
+    }
+
+    @Test
     fun `ERROR point + point`() {
         val a = Point(3.0, -2.0, 5.0)
         val b = Point(-2.0, 3.0, 1.0)
-        assertThrows(AssertionError::class.java) { a + b }
+        assertThrows(IllegalArgumentException::class.java) { a + b }
     }
 
     @Test
     fun `ERROR tPoint + tPoint`() {
         val a = Tuple(3.0, -2.0, 5.0, 1.0)
         val b = Tuple(-2.0, 3.0, 1.0, 1.0)
-        assertThrows(AssertionError::class.java) { a + b }
+        assertThrows(IllegalArgumentException::class.java) { a + b }
     }
 }
