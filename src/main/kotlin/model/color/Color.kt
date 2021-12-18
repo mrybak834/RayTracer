@@ -13,6 +13,15 @@ data class Color(
     override fun equals(other: Any?) = super.equals(other)
     override fun hashCode() = super.hashCode()
 
+    override operator fun plus(other: Tuple) = toColor(super.plus(other))
+    override operator fun minus(other: Tuple) = toColor(super.minus(other))
+    override operator fun times(scalar: Double) = toColor(super.times(scalar))
+    operator fun times(c: Color) = Color(red * c.red, green * c.green, blue * c.blue)
 
-
+    fun hex() = "#%02x%02x%02x".format(
+        (red * 255).toInt(),
+        (green * 255).toInt(),
+        (blue * 255).toInt()
+    )
 }
+operator fun Double.times(other: Color) = other.times(this)

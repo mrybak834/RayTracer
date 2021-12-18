@@ -16,7 +16,8 @@ data class Vector(
     override fun equals(other: Any?) = super.equals(other)
     override fun hashCode() = super.hashCode()
 
-    override operator fun plus(other: Tuple) = toPoint(super.plus(other))
+
+    override operator fun plus(other: Tuple) = if(other.isVector()) toVector(super.plus(other)) else toPoint(super.plus(other))
     operator fun plus(other: Vector) = toVector(super.plus(other))
     operator fun plus(other: Point) = toPoint(super.plus(other))
     override operator fun minus(other: Tuple) = toVector(super.minus(other))
