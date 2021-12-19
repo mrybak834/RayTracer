@@ -21,7 +21,7 @@ data class Canvas(
             return null
         }
         val pixel = Pixel(color)
-        pixels[if(translateHorizontally) height - y else y][x] = pixel
+        pixels[if(translateHorizontally) height -1 - y else y][x] = pixel
         return pixel
     }
 

@@ -2,15 +2,24 @@ package model.color
 
 import model.tuple.Tuple
 import kotlin.math.roundToInt
+import kotlin.random.Random
 
 data class Color(
     val red: Double,
     val green: Double,
     val blue: Double
 ): Tuple(red, green, blue, 0.0) {
+
+    constructor(r255: Int, g255: Int, b255: Int): this(
+        r255.toDouble() / 255.0,
+        g255.toDouble() / 255.0,
+        b255.toDouble() / 255.0
+    )
+
     companion object{
         fun toColor(other: Tuple) = Color(other.x, other.y, other.z)
         fun rgbScaled(value: Double) = (value * 255.0).roundToInt().coerceIn(0, 255)
+        fun randomColor() = Color(Random.nextDouble(0.0, 1.0), Random.nextDouble(0.0, 1.0), Random.nextDouble(0.0, 1.0))
     }
     override fun equals(other: Any?) = super.equals(other)
     override fun hashCode() = super.hashCode()

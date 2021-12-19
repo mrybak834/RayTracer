@@ -38,7 +38,7 @@ internal class ProjectilesTest {
             gravity = Vector(0.0, -0.1, 0.0),
             wind = Vector(-0.01, 0.0, 0.0)
         )
-        val c = Canvas(900, 550)
+        val c = Canvas(900, 550, Color(4, 42, 43))
         drawSimulation(c, projectile, environment)
     }
 }

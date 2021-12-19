@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="projects.ProjectilesTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-12-19T06:49:36" hostname="mrybak834-Z590I-AORUS-ULTRA" time="0.15">
+<testsuite name="projects.ProjectilesTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-12-19T07:15:52" hostname="mrybak834-Z590I-AORUS-ULTRA" time="0.134">
   <properties/>
-  <testcase name="projectiles drawn()" classname="projects.ProjectilesTest" time="0.15"/>
+  <testcase name="projectiles drawn()" classname="projects.ProjectilesTest" time="0.134"/>
   <system-out><![CDATA[Position after 1 ticks: Point(x=5.463482975759611, y=10.834269356367301, z=0.0)
 Position after 2 ticks: Point(x=10.916965951519222, y=20.5685387127346, z=0.0)
 Position after 3 ticks: Point(x=16.36044892727883, y=30.202808069101902, z=0.0)

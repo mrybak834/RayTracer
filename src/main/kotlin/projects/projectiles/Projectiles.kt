@@ -33,14 +33,13 @@ fun runSimulation(projectile: Projectile, environment: Environment) {
 }
 
 fun drawSimulation(canvas: Canvas, projectile: Projectile, environment: Environment) {
-    val color = Color(1.0, 0.0, 0.0)
-    canvas.setPixel(projectile.position.x.toInt(), projectile.position.y.toInt(), color, translateHorizontally = true)
+    canvas.setPixel(projectile.position.x.toInt(), projectile.position.y.toInt(), Color(216,71, 39), translateHorizontally = true)
 
     var projectileFired = projectile
     var tickCount = 0
     while(projectileFired.position.y > 0) {
         projectileFired = tick(projectileFired, environment)
-        canvas.setPixel(projectileFired.position.x.toInt(), projectileFired.position.y.toInt(), color, translateHorizontally = true)
+        canvas.setPixel(projectileFired.position.x.toInt(), projectileFired.position.y.toInt(), Color(216,71, 39), translateHorizontally = true)
         tickCount++
         println("Position after $tickCount ticks: ${projectileFired.position}")
     }

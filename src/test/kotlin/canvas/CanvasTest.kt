@@ -36,6 +36,6 @@ internal class CanvasTest {
     fun `Set pixel outside bounds`() {
         val c = Canvas(5, 4)
         val red = Color(1.0, 0.0, 0.0)
-        assertThrows(IllegalArgumentException::class.java) { c.setPixel(6, 7, red) }
+        assertNull(c.setPixel(6, 7, red))
     }
 }
