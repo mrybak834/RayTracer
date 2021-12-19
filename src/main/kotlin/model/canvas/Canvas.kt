@@ -19,6 +19,31 @@ data class Canvas(
 
     fun getPixel(x: Int, y: Int) = pixels[y][x]
 
+    fun toPPM() = "P3\n$width $height\n255\n${pixelsToString()}"
+
+    fun pixelsToString(): String {
+        val result = StringBuilder()
+        val line = StringBuilder()
+        val maxCharacters = 70
+
+        for (row in pixels) {
+            for (pixel in row) {
+                val pixelRGB = pixel.color.rgbScaled()
+                pixelRGB.values.forEach {
+                    if (line.length + "$it ".length > maxCharacters){
+                        result.appendLine(line.trim())
+                        line.clear()
+                    } else {
+                        line.append("$it ")
+                    }
+                }
+            }
+            result.appendLine(line.trim())
+            line.clear()
+        }
+
+        return result.toString()
+    }
 
     fun print() {
         for (y in 0 until height) {

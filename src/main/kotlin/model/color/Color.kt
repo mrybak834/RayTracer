@@ -1,6 +1,7 @@
 package model.color
 
 import model.tuple.Tuple
+import kotlin.math.roundToInt
 
 data class Color(
     val red: Double,
@@ -9,6 +10,7 @@ data class Color(
 ): Tuple(red, green, blue, 0.0) {
     companion object{
         fun toColor(other: Tuple) = Color(other.x, other.y, other.z)
+        fun rbgScaled(value: Double) = (value * 255.0).roundToInt().coerceIn(0, 255)
     }
     override fun equals(other: Any?) = super.equals(other)
     override fun hashCode() = super.hashCode()
@@ -23,5 +25,7 @@ data class Color(
         (green * 255).toInt(),
         (blue * 255).toInt()
     )
+
+    fun rgbScaled() = mapOf("red" to "${rbgScaled(red)}", "green" to "${rbgScaled(green)}", "blue" to "${rbgScaled(blue)}")
 }
 operator fun Double.times(other: Color) = other.times(this)
