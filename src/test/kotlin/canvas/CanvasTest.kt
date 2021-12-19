@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 import util.Util
+import java.lang.IllegalArgumentException
 
 @Suppress("USELESS_IS_CHECK")
 internal class CanvasTest {
@@ -29,5 +30,12 @@ internal class CanvasTest {
         val red = Color(1.0, 0.0, 0.0)
         c.setPixel(2, 3, red)
         assertTrue(red == c.getPixel(2, 3).color)
+    }
+
+    @Test
+    fun `Set pixel outside bounds`() {
+        val c = Canvas(5, 4)
+        val red = Color(1.0, 0.0, 0.0)
+        assertThrows(IllegalArgumentException::class.java) { c.setPixel(6, 7, red) }
     }
 }

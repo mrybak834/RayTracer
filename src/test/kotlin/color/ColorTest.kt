@@ -95,14 +95,16 @@ internal class ColorTest {
 
     @Test
     fun `Hex of color`() {
-        val c = Color(0.2, 0.7, 0.3)
-        val r = Color(0.5, 0.0, 0.1)
-        val g = c*r
-        println("""
-            c.hex = ${c.hex()}
-            r.hex = ${r.hex()}
-            g.hex = ${g.hex()}
-        """.trimIndent())
+        val c = Color(1.0, 0.0, 1.0)
         assertTrue(c.hex() == "#ff00ff")
+    }
+
+    @Test
+    fun `Scaled rgb of color`() {
+        val c = Color(1.2, 0.5, -1.0)
+        val scaled = c.rgbScaled()
+        assertTrue(scaled["red"] == 255)
+        assertTrue(scaled["green"] == 128)
+        assertTrue(scaled["blue"] == 0)
     }
 }

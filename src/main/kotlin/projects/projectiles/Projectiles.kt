@@ -1,5 +1,8 @@
 package projects.projectiles
 
+import model.canvas.Canvas
+import model.canvas.PPM.Companion.toPPM
+import model.color.Color
 import model.tuple.Point
 import model.tuple.Vector
 
@@ -27,4 +30,20 @@ fun runSimulation(projectile: Projectile, environment: Environment) {
         tickCount++
         println("Position after $tickCount ticks: ${projectileFired.position}")
     }
+}
+
+fun drawSimulation(canvas: Canvas, projectile: Projectile, environment: Environment) {
+    val color = Color(1.0, 0.0, 0.0)
+    canvas.setPixel(projectile.position.x.toInt(), projectile.position.y.toInt(), color, translateHorizontally = true)
+
+    var projectileFired = projectile
+    var tickCount = 0
+    while(projectileFired.position.y > 0) {
+        projectileFired = tick(projectileFired, environment)
+        canvas.setPixel(projectileFired.position.x.toInt(), projectileFired.position.y.toInt(), color, translateHorizontally = true)
+        tickCount++
+        println("Position after $tickCount ticks: ${projectileFired.position}")
+    }
+
+    toPPM(canvas, "projectile.ppm")
 }

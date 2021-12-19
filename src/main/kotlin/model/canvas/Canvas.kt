@@ -11,44 +11,27 @@ data class Canvas(
             this(width, height, createPixels(width, height, initialColor))
 
 
-    fun setPixel(x: Int, y: Int, color: Color): Pixel {
+    /**
+     * @param translateHorizontally if true, flips the result about the horizontal axis.
+     * Useful since we are dealing with a -y axis, and most calculations are done with a +y axis.
+     */
+    fun setPixel(x: Int, y: Int, color: Color, translateHorizontally: Boolean = false): Pixel? {
+        if (x < 0 || x >= width || y < 0 || y >= height) {
+            println("Error: pixel out of bounds")
+            return null
+        }
         val pixel = Pixel(color)
-        pixels[y][x] = pixel
+        pixels[if(translateHorizontally) height - y else y][x] = pixel
         return pixel
     }
 
     fun getPixel(x: Int, y: Int) = pixels[y][x]
 
-    fun toPPM() = "P3\n$width $height\n255\n${pixelsToString()}"
-
-    fun pixelsToString(): String {
-        val result = StringBuilder()
-        val line = StringBuilder()
-        val maxCharacters = 70
-
-        for (row in pixels) {
-            for (pixel in row) {
-                val pixelRGB = pixel.color.rgbScaled()
-                pixelRGB.values.forEach {
-                    if (line.length + "$it ".length > maxCharacters){
-                        result.appendLine(line.trim())
-                        line.clear()
-                    } else {
-                        line.append("$it ")
-                    }
-                }
-            }
-            result.appendLine(line.trim())
-            line.clear()
-        }
-
-        return result.toString()
-    }
-
     fun print() {
         for (y in 0 until height) {
             for (x in 0 until width) {
-                print("($x, $y)${if(pixels[y][x].color == Color(1.0, 0.0, 0.0)) "YUP " else " "}")
+                val color = pixels[y][x].color
+                print("${color.rgbScaledRed()} ${color.rgbScaledGreen()} ${color.rgbScaledBlue()} ")
             }
             println()
         }
