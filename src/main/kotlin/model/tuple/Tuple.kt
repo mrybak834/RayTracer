@@ -1,6 +1,6 @@
 package model.tuple
 
-import util.Util
+import util.equalsE
 
 open class Tuple(
     open val x: Double,
@@ -8,11 +8,13 @@ open class Tuple(
     open val z: Double,
     open val w: Double
 ) {
-    fun isPoint() =  w == 1.0
+    fun isPoint() = w == 1.0
     fun isVector() = w == 0.0
 
     override fun equals(other: Any?) =
-        if (other is Tuple) Util.equals(x, other.x) && Util.equals(y, other.y) && Util.equals(z, other.z) && Util.equals(w, other.w) else false
+        if (other is Tuple) x.equalsE(other.x) && y.equalsE(other.y) && z.equalsE(other.z) && w.equalsE(
+            other.w
+        ) else false
 
     override fun hashCode(): Int {
         var result = x.hashCode()

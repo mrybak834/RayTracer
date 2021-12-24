@@ -1,11 +1,8 @@
 package vector
 
 import model.tuple.Vector
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
-import util.Util
-import kotlin.math.sqrt
 
 internal class CrossProductTest {
 

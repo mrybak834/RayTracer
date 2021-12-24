@@ -2,8 +2,7 @@ package model.canvas
 
 import java.io.File
 
-class PPM(
-) {
+class PPM {
     companion object {
         fun toPPM(canvas: Canvas) = "P3\n${canvas.width} ${canvas.height}\n255\n${pixelsToString(canvas.pixels)}"
 
@@ -29,7 +28,7 @@ class PPM(
             for (row in pixels) {
                 for (pixel in row) {
                     for (position in 0 until 3) {
-                        val value = when(position) {
+                        val value = when (position) {
                             0 -> pixel.color.rgbScaledRed()
                             1 -> pixel.color.rgbScaledGreen()
                             2 -> {
@@ -38,7 +37,7 @@ class PPM(
                             }
                             else -> throw IllegalStateException("Position=$position is not valid")
                         }
-                        if (line.length + "$value ".length > maxCharacters){
+                        if (line.length + "$value ".length > maxCharacters) {
                             result.appendLine(line.trim())
                             line.clear()
                         }

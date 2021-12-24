@@ -2,7 +2,6 @@ package model.tuple
 
 import model.tuple.Point.Companion.toPoint
 import model.tuple.Vector.Companion.toVector
-import util.Util
 import kotlin.math.sqrt
 
 data class Vector(
@@ -10,14 +9,17 @@ data class Vector(
     override val y: Double,
     override val z: Double
 ) : Tuple(x, y, z, 0.0) {
-    companion object{
+    companion object {
         fun toVector(other: Tuple) = Vector(other.x, other.y, other.z)
     }
+
     override fun equals(other: Any?) = super.equals(other)
     override fun hashCode() = super.hashCode()
 
 
-    override operator fun plus(other: Tuple) = if(other.isVector()) toVector(super.plus(other)) else toPoint(super.plus(other))
+    override operator fun plus(other: Tuple) =
+        if (other.isVector()) toVector(super.plus(other)) else toPoint(super.plus(other))
+
     operator fun plus(other: Vector) = toVector(super.plus(other))
     operator fun plus(other: Point) = toPoint(super.plus(other))
     override operator fun minus(other: Tuple) = toVector(super.minus(other))
@@ -41,5 +43,6 @@ data class Vector(
         x * other.y - y * other.x
     )
 }
+
 operator fun Double.times(other: Vector) = toVector(this.times(other as Tuple))
 operator fun Double.div(other: Vector) = toVector(this.div(other as Tuple))

@@ -19,10 +19,11 @@ data class Point(
     override operator fun times(scalar: Double) = toPoint(super.times(scalar))
     override operator fun div(scalar: Double) = toPoint(super.div(scalar))
 
-    companion object{
+    companion object {
         fun toPoint(other: Tuple) = Point(other.x, other.y, other.z)
     }
 
 }
+
 operator fun Double.times(other: Point) = toPoint(this.times(other as Tuple))
 operator fun Double.div(other: Point) = toPoint(this.div(other as Tuple))

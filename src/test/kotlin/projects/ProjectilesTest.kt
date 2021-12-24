@@ -1,16 +1,14 @@
 package projects
 
 import model.canvas.Canvas
-import model.canvas.PPM.Companion.toPPM
 import model.color.Color
 import model.tuple.Point
 import model.tuple.Vector
 import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
-import projects.projectiles.*
-import util.Util
-import kotlin.math.sqrt
+import projects.projectiles.Environment
+import projects.projectiles.Projectile
+import projects.projectiles.drawSimulation
+import projects.projectiles.runSimulation
 
 internal class ProjectilesTest {
 

@@ -21,7 +21,7 @@ data class Canvas(
             return null
         }
         val pixel = Pixel(color)
-        pixels[if(translateHorizontally) height -1 - y else y][x] = pixel
+        pixels[if (translateHorizontally) height - 1 - y else y][x] = pixel
         return pixel
     }
 
@@ -38,7 +38,11 @@ data class Canvas(
     }
 
     companion object {
-        fun createPixels(width: Int, height: Int, initialColor: Color = Color(0.0, 0.0, 0.0)): List<MutableList<Pixel>> {
+        fun createPixels(
+            width: Int,
+            height: Int,
+            initialColor: Color = Color(0.0, 0.0, 0.0)
+        ): List<MutableList<Pixel>> {
             val pixels = mutableListOf<MutableList<Pixel>>()
 
             for (y in 0 until height) {

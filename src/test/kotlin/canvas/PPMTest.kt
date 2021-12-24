@@ -1,16 +1,10 @@
 package canvas
 
 import model.canvas.Canvas
-import model.canvas.PPM
 import model.canvas.PPM.Companion.toPPM
-import model.canvas.Pixel
 import model.color.Color
-import model.color.times
-import model.tuple.Tuple
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
-import util.Util
 
 @Suppress("USELESS_IS_CHECK")
 internal class PPMTest {
@@ -19,11 +13,15 @@ internal class PPMTest {
     fun `PPM header`() {
         val c = Canvas(5, 3)
         val ppm = toPPM(c)
-        assertTrue(ppm.startsWith("""
+        assertTrue(
+            ppm.startsWith(
+                """
             P3
             5 3
             255
-        """.trimIndent()))
+        """.trimIndent()
+            )
+        )
     }
 
     @Test
@@ -49,7 +47,7 @@ internal class PPMTest {
     }
 
     @Test
-    fun `PPM lines must be under 70 characters`(){
+    fun `PPM lines must be under 70 characters`() {
         val c = Canvas(10, 2, Color(1.0, 0.8, 0.6))
         val ppm = toPPM(c)
         print(ppm)
@@ -57,14 +55,14 @@ internal class PPMTest {
     }
 
     @Test
-    fun `PPM files must be terminated by a newline`(){
+    fun `PPM files must be terminated by a newline`() {
         val c = Canvas(5, 3)
         val ppm = toPPM(c)
         assertTrue(ppm.endsWith("\n"))
     }
 
     @Test
-    fun `PPM file`(){
+    fun `PPM file`() {
         val c = Canvas(5, 3)
         val c1 = Color(1.5, 0.0, 0.0)
         val c2 = Color(0.0, 0.5, 0.0)
@@ -73,7 +71,7 @@ internal class PPMTest {
         c.setPixel(2, 1, c2)
         c.setPixel(4, 2, c3)
         val ppm = toPPM(c)
-        val ppmFile = toPPM(c,"test.ppm")
+        val ppmFile = toPPM(c, "test.ppm")
         val contents = ppmFile.readLines()
         assertTrue(contents.joinToString("\n") == ppm.trim())
     }

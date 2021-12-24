@@ -3,10 +3,9 @@ package color
 import model.color.Color
 import model.color.times
 import model.tuple.Tuple
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
-import util.Util
+import util.equalsE
 
 @Suppress("USELESS_IS_CHECK")
 internal class ColorTest {
@@ -14,9 +13,9 @@ internal class ColorTest {
     @Test
     fun `Colors are r g b tuples`() {
         val c = Color(-0.5, 0.4, 1.7)
-        assertTrue(Util.equals(c.red, -0.5))
-        assertTrue(Util.equals(c.green, 0.4))
-        assertTrue(Util.equals(c.blue, 1.7))
+        assertTrue(c.red.equalsE(-0.5))
+        assertTrue(c.green.equalsE(0.4))
+        assertTrue(c.blue.equalsE(1.7))
         assertTrue(c == Tuple(c.red, c.green, c.blue, 0.0))
     }
 

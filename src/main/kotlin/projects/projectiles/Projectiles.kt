@@ -25,7 +25,7 @@ fun tick(projectile: Projectile, environment: Environment) =
 fun runSimulation(projectile: Projectile, environment: Environment) {
     var projectileFired = projectile
     var tickCount = 0
-    while(projectileFired.position.y > 0) {
+    while (projectileFired.position.y > 0) {
         projectileFired = tick(projectileFired, environment)
         tickCount++
         println("Position after $tickCount ticks: ${projectileFired.position}")
@@ -33,13 +33,23 @@ fun runSimulation(projectile: Projectile, environment: Environment) {
 }
 
 fun drawSimulation(canvas: Canvas, projectile: Projectile, environment: Environment) {
-    canvas.setPixel(projectile.position.x.toInt(), projectile.position.y.toInt(), Color(216,71, 39), translateHorizontally = true)
+    canvas.setPixel(
+        projectile.position.x.toInt(),
+        projectile.position.y.toInt(),
+        Color(216, 71, 39),
+        translateHorizontally = true
+    )
 
     var projectileFired = projectile
     var tickCount = 0
-    while(projectileFired.position.y > 0) {
+    while (projectileFired.position.y > 0) {
         projectileFired = tick(projectileFired, environment)
-        canvas.setPixel(projectileFired.position.x.toInt(), projectileFired.position.y.toInt(), Color(216,71, 39), translateHorizontally = true)
+        canvas.setPixel(
+            projectileFired.position.x.toInt(),
+            projectileFired.position.y.toInt(),
+            Color(216, 71, 39),
+            translateHorizontally = true
+        )
         tickCount++
         println("Position after $tickCount ticks: ${projectileFired.position}")
     }

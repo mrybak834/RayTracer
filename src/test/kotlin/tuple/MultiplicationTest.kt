@@ -3,10 +3,9 @@ package tuple
 import model.tuple.Point
 import model.tuple.Tuple
 import model.tuple.Vector
-import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
 import model.tuple.times
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
 
 internal class MultiplicationTest {
 

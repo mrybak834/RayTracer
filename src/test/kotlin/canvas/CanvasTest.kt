@@ -1,15 +1,9 @@
 package canvas
 
 import model.canvas.Canvas
-import model.canvas.Pixel
 import model.color.Color
-import model.color.times
-import model.tuple.Tuple
-import org.junit.jupiter.api.Test
-
 import org.junit.jupiter.api.Assertions.*
-import util.Util
-import java.lang.IllegalArgumentException
+import org.junit.jupiter.api.Test
 
 @Suppress("USELESS_IS_CHECK")
 internal class CanvasTest {
@@ -19,7 +13,7 @@ internal class CanvasTest {
         val c = Canvas(10, 20)
         assertEquals(10, c.width)
         assertEquals(20, c.height)
-        assertNull(c.pixels.firstOrNull{ row ->
+        assertNull(c.pixels.firstOrNull { row ->
             row.firstOrNull { it.color != Color(0.0, 0.0, 0.0) } != null
         })
     }
