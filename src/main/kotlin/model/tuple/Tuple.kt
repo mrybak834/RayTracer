@@ -11,6 +11,9 @@ open class Tuple(
     fun isPoint() = w == 1.0
     fun isVector() = w == 0.0
 
+    constructor(x: Number, y: Number, z: Number, w: Number) : this(x.toDouble(), y.toDouble(), z.toDouble(), w.toDouble())
+
+
     override fun equals(other: Any?) =
         if (other is Tuple) x.equalsE(other.x) && y.equalsE(other.y) && z.equalsE(other.z) && w.equalsE(
             other.w
