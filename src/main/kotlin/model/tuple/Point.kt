@@ -11,6 +11,8 @@ data class Point(
     override fun equals(other: Any?) = super.equals(other)
     override fun hashCode() = super.hashCode()
 
+    constructor(x: Number, y: Number, z: Number) : this(x.toDouble(), y.toDouble(), z.toDouble())
+
 
     override operator fun plus(other: Tuple) = toPoint(super.plus(other))
     operator fun minus(other: Vector) = toPoint(super.minus(other))

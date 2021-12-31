@@ -56,14 +56,16 @@ data class Matrix(
     }
 
     operator fun times(b: Tuple): Tuple {
-        val result = times(Matrix(
-            listOf(
-                listOf(b.x),
-                listOf(b.y),
-                listOf(b.z),
-                listOf(b.w)
+        val result = times(
+            Matrix(
+                listOf(
+                    listOf(b.x),
+                    listOf(b.y),
+                    listOf(b.z),
+                    listOf(b.w)
+                )
             )
-        )).matrix
+        ).matrix
         return Tuple(result[0].first(), result[1].first(), result[2].first(), result[3].first())
     }
 
@@ -124,7 +126,7 @@ data class Matrix(
             var determinant = 0.0
 
             if (a.matrix.size == 2) {
-                determinant =  a[0, 0] * a[1, 1] - a[0, 1] * a[1, 0]
+                determinant = a[0, 0] * a[1, 1] - a[0, 1] * a[1, 0]
             } else {
                 for (i in 0 until a.matrix.size) {
                     determinant += a[0, i] * cofactor(a, 0, i)
@@ -148,6 +150,5 @@ data class Matrix(
             }
             return Matrix(inverse)
         }
-
     }
 }

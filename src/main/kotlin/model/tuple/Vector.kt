@@ -13,6 +13,9 @@ data class Vector(
         fun toVector(other: Tuple) = Vector(other.x, other.y, other.z)
     }
 
+    constructor(x: Number, y: Number, z: Number) : this(x.toDouble(), y.toDouble(), z.toDouble())
+
+
     override fun equals(other: Any?) = super.equals(other)
     override fun hashCode() = super.hashCode()
 
