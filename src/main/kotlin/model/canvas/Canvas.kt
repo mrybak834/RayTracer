@@ -14,14 +14,29 @@ data class Canvas(
     /**
      * @param translateHorizontally if true, flips the result about the horizontal axis.
      * Useful since we are dealing with a -y axis, and most calculations are done with a +y axis.
+     *
+     * @param center center on the canvas
      */
-    fun setPixel(x: Int, y: Int, color: Color, translateHorizontally: Boolean = false): Pixel? {
-        if (x < 0 || x >= width || y < 0 || y >= height) {
+    fun setPixel(x: Int, y: Int, color: Color, center: Boolean = false, translateHorizontally: Boolean = false): Pixel? {
+        var xTransformed = x
+        var yTransformed = y
+
+        if (center) {
+            xTransformed += (width) / 2
+            yTransformed += (height) / 2
+        }
+
+        if (translateHorizontally) {
+            yTransformed = height - yTransformed - 1
+        }
+
+        if (xTransformed < 0 || xTransformed >= width || yTransformed < 0 || yTransformed >= height) {
             println("Error: pixel out of bounds")
             return null
         }
         val pixel = Pixel(color)
-        pixels[if (translateHorizontally) height - 1 - y else y][x] = pixel
+
+        pixels[yTransformed][xTransformed] = pixel
         return pixel
     }
 
