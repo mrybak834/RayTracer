@@ -1,8 +1,5 @@
 package model.tuple
 
-import model.tuple.Point.Companion.toPoint
-import model.tuple.Vector.Companion.toVector
-
 data class Point(
     override val x: Double,
     override val y: Double,
@@ -12,20 +9,15 @@ data class Point(
     override fun hashCode() = super.hashCode()
 
     constructor(x: Number, y: Number, z: Number) : this(x.toDouble(), y.toDouble(), z.toDouble())
+    constructor(t: Tuple) : this(t.x, t.y, t.z)
 
-
-    override operator fun plus(other: Tuple) = toPoint(super.plus(other))
-    operator fun minus(other: Vector) = toPoint(super.minus(other))
-    operator fun minus(other: Point): Vector = toVector(super.minus(other))
-    override operator fun unaryMinus() = toPoint(super.unaryMinus())
-    override operator fun times(scalar: Double) = toPoint(super.times(scalar))
-    override operator fun div(scalar: Double) = toPoint(super.div(scalar))
-
-    companion object {
-        fun toPoint(other: Tuple) = Point(other.x, other.y, other.z)
-    }
-
+    override operator fun plus(other: Tuple) = Point(super.plus(other))
+    operator fun minus(other: Vector) = Point(super.minus(other))
+    operator fun minus(other: Point): Vector = Vector(super.minus(other))
+    override operator fun unaryMinus() = Point(super.unaryMinus())
+    override operator fun times(scalar: Double) = Point(super.times(scalar))
+    override operator fun div(scalar: Double) = Point(super.div(scalar))
 }
 
-operator fun Double.times(other: Point) = toPoint(this.times(other as Tuple))
-operator fun Double.div(other: Point) = toPoint(this.div(other as Tuple))
+operator fun Double.times(other: Point) = Point(this.times(other as Tuple))
+operator fun Double.div(other: Point) = Point(this.div(other as Tuple))

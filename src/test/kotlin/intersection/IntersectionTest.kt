@@ -1,6 +1,7 @@
 package intersection
 
 import model.intersection.Intersection
+import model.intersection.Intersection.Companion.getHit
 import model.intersection.Intersection.Companion.getIntersections
 import model.ray.Ray
 import model.sphere.Sphere
@@ -14,7 +15,7 @@ import util.equalsE
 internal class IntersectionTest {
 
     @Test
-    fun `An intersection encapsulates the t value and the object` () {
+    fun `An intersection encapsulates the t value and the object`() {
         val s = Sphere()
         val i = Intersection(3.5, s)
         assertTrue(i.t.equalsE(3.5))
@@ -41,4 +42,47 @@ internal class IntersectionTest {
         assertTrue(xs[0].item === s)
         assertTrue(xs[1].item === s)
     }
+
+    @Test
+    fun `The hit when all intersections have positive t`() {
+        val s = Sphere()
+        val i1 = Intersection(1, s)
+        val i2 = Intersection(2, s)
+        val xs = getIntersections(i2, i1)
+        val i = xs.getHit()
+        assertTrue(i === i1)
+    }
+
+    @Test
+    fun `The hit when some intersections have negative t`() {
+        val s = Sphere()
+        val i1 = Intersection(-1, s)
+        val i2 = Intersection(1, s)
+        val xs = getIntersections(i2, i1)
+        val i = xs.getHit()
+        assertTrue(i === i2)
+    }
+
+    @Test
+    fun `The hit when all intersections have negative t`() {
+        val s = Sphere()
+        val i1 = Intersection(-2, s)
+        val i2 = Intersection(-1, s)
+        val xs = getIntersections(i2, i1)
+        val i = xs.getHit()
+        assertTrue(i === null)
+    }
+
+    @Test
+    fun `The hit is always the lowest non negative intersection`() {
+        val s = Sphere()
+        val i1 = Intersection(5, s)
+        val i2 = Intersection(7, s)
+        val i3 = Intersection(-3, s)
+        val i4 = Intersection(2, s)
+        val xs = getIntersections(i1, i2, i3, i4)
+        val i = xs.getHit()
+        assertTrue(i === i4)
+    }
+
 }

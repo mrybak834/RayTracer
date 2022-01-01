@@ -9,7 +9,7 @@ import projects.clock.draw
 internal class ClockTest {
 
     @Test
-    fun `Draw a clock` () {
+    fun `Draw a clock`() {
         val c = Canvas(1920, 1080, Color(4, 42, 43))
         draw(c)
     }

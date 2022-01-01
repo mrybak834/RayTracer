@@ -115,7 +115,7 @@ internal class MatrixTest {
     }
 
     @Test
-    fun `Multiply matrices` () {
+    fun `Multiply matrices`() {
         val a = Matrix(
             listOf(
                 listOf(1, 2, 3, 4),
@@ -143,14 +143,14 @@ internal class MatrixTest {
             )
         )
 
-        assertTrue(a*b == result)
+        assertTrue(a * b == result)
     }
 
     @Test
-    fun `Multiply uneven matrices` () {
+    fun `Multiply uneven matrices`() {
         val a = Matrix(
             listOf(
-                listOf(1 , 2),
+                listOf(1, 2),
                 listOf(3, 4),
             )
         )
@@ -173,40 +173,40 @@ internal class MatrixTest {
     }
 
     @Test
-    fun `Matrix x tuple` () {
+    fun `Matrix x tuple`() {
         val a = Matrix(
             listOf(
-                listOf(1,2,3,4),
-                listOf(2,4,4,2),
-                listOf(8,6,4,1),
-                listOf(0,0,0,1)
+                listOf(1, 2, 3, 4),
+                listOf(2, 4, 4, 2),
+                listOf(8, 6, 4, 1),
+                listOf(0, 0, 0, 1)
             )
         )
 
-        val b = Tuple(1,2,3,1)
+        val b = Tuple(1, 2, 3, 1)
 
-        val result = Tuple(18,24,33,1)
+        val result = Tuple(18, 24, 33, 1)
 
-        assertTrue(a*b == result)
+        assertTrue(a * b == result)
     }
 
     @Test
-    fun `Matrix x Identity` () {
+    fun `Matrix x Identity`() {
         val a = Matrix(
             listOf(
-                listOf(0,1,2,4),
-                listOf(1,2,4,8),
-                listOf(2,4,8,16),
-                listOf(4,8,16,32)
+                listOf(0, 1, 2, 4),
+                listOf(1, 2, 4, 8),
+                listOf(2, 4, 8, 16),
+                listOf(4, 8, 16, 32)
             )
         )
 
-        assertTrue(a*identity == a)
+        assertTrue(a * identity == a)
     }
 
     @Test
-    fun `Identity x Tuple` () {
-        val a = Tuple(1,2,3,4)
+    fun `Identity x Tuple`() {
+        val a = Tuple(1, 2, 3, 4)
 
         assertTrue(identity * a == a)
     }
@@ -215,19 +215,19 @@ internal class MatrixTest {
     fun `Transpose a matrix`() {
         val a = Matrix(
             listOf(
-                listOf(0,9,3,0),
-                listOf(9,8,0,8),
-                listOf(1,8,5,3),
-                listOf(0,0,5,8)
+                listOf(0, 9, 3, 0),
+                listOf(9, 8, 0, 8),
+                listOf(1, 8, 5, 3),
+                listOf(0, 0, 5, 8)
             )
         )
 
         val b = Matrix(
             listOf(
-                listOf(0,9,1,0),
-                listOf(9,8,8,0),
-                listOf(3,0,5,5),
-                listOf(0,8,3,8)
+                listOf(0, 9, 1, 0),
+                listOf(9, 8, 8, 0),
+                listOf(3, 0, 5, 5),
+                listOf(0, 8, 3, 8)
             )
         )
 
@@ -252,7 +252,7 @@ internal class MatrixTest {
     }
 
     @Test
-    fun `Submatrix of 3x3` () {
+    fun `Submatrix of 3x3`() {
         val a = Matrix(
             listOf(
                 listOf(1, 5, 0),
@@ -418,7 +418,7 @@ internal class MatrixTest {
     }
 
     @Test
-    fun `Inverse of 4x4 matrix 2` () {
+    fun `Inverse of 4x4 matrix 2`() {
         val a = Matrix(
             listOf(
                 listOf(8, -5, 9, 2),
@@ -441,7 +441,7 @@ internal class MatrixTest {
     }
 
     @Test
-    fun `Inverse of 4x4 matrix 3` () {
+    fun `Inverse of 4x4 matrix 3`() {
         val a = Matrix(
             listOf(
                 listOf(9, 3, 0, 9),
@@ -464,7 +464,7 @@ internal class MatrixTest {
     }
 
     @Test
-    fun `A x B = C therefore C x Binverse = A` () {
+    fun `A x B = C therefore C x Binverse = A`() {
         val a = Matrix(
             listOf(
                 listOf(3, -9, 7, 3),
@@ -495,7 +495,7 @@ internal class MatrixTest {
 
     // THIS SHIT IS MAGIC, wtf!!!!!!!!!!
     @Test
-    fun `Matrix x MatrixInverse` () {
+    fun `Matrix x MatrixInverse`() {
         val a = Matrix(
             listOf(
                 listOf(3, -9, 7, 3),
@@ -513,7 +513,7 @@ internal class MatrixTest {
     }
 
     @Test
-    fun `inverse of transpose == transpose of inverse` () {
+    fun `inverse of transpose == transpose of inverse`() {
         val a = Matrix(
             listOf(
                 listOf(8, 2, 2, 2),

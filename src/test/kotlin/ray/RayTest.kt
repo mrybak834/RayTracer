@@ -1,12 +1,13 @@
 package ray
 
+import model.matrix.Transformation.Companion.scale
+import model.matrix.Transformation.Companion.transform
+import model.matrix.Transformation.Companion.translate
 import model.ray.Ray
-import model.sphere.Sphere
 import model.tuple.Point
 import model.tuple.Vector
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
-import util.equalsE
 
 @Suppress("USELESS_IS_CHECK")
 internal class RayTest {
@@ -27,6 +28,22 @@ internal class RayTest {
         assertTrue(r.position(1.0) == Point(3, 3, 4))
         assertTrue(r.position(-1.0) == Point(1, 3, 4))
         assertTrue(r.position(2.5) == Point(4.5, 3, 4))
+    }
+
+    @Test
+    fun `Translating a ray`() {
+        val r = Ray(Point(1, 2, 3), Vector(0, 1, 0))
+        val r2 = transform(r, translate(3, 4, 5))
+        assertTrue(r2.origin == Point(4, 6, 8))
+        assertTrue(r2.direction == Vector(0, 1, 0))
+    }
+
+    @Test
+    fun `Scaling a ray`() {
+        val r = Ray(Point(1, 2, 3), Vector(0, 1, 0))
+        val r2 = transform(r, scale(2, 3, 4))
+        assertTrue(r2.origin == Point(2, 6, 12))
+        assertTrue(r2.direction == Vector(0, 3, 0))
     }
 
 }

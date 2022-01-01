@@ -17,7 +17,13 @@ data class Canvas(
      *
      * @param center center on the canvas
      */
-    fun setPixel(x: Int, y: Int, color: Color, center: Boolean = false, translateHorizontally: Boolean = false): Pixel? {
+    fun setPixel(
+        x: Int,
+        y: Int,
+        color: Color,
+        center: Boolean = false,
+        translateHorizontally: Boolean = false
+    ): Pixel? {
         var xTransformed = x
         var yTransformed = y
 

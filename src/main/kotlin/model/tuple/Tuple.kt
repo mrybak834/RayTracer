@@ -11,7 +11,12 @@ open class Tuple(
     fun isPoint() = w == 1.0
     fun isVector() = w == 0.0
 
-    constructor(x: Number, y: Number, z: Number, w: Number) : this(x.toDouble(), y.toDouble(), z.toDouble(), w.toDouble())
+    constructor(x: Number, y: Number, z: Number, w: Number) : this(
+        x.toDouble(),
+        y.toDouble(),
+        z.toDouble(),
+        w.toDouble()
+    )
 
 
     override fun equals(other: Any?) =
@@ -40,7 +45,6 @@ open class Tuple(
     open operator fun unaryMinus() = Tuple(-x, -y, -z, w)
     open operator fun times(scalar: Double) = Tuple(x * scalar, y * scalar, z * scalar, w)
     open operator fun div(scalar: Double) = Tuple(x / scalar, y / scalar, z / scalar, w)
-
 }
 
 operator fun Double.times(other: Tuple) = other * this

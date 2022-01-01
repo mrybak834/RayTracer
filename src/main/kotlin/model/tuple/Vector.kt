@@ -1,7 +1,6 @@
 package model.tuple
 
-import model.tuple.Point.Companion.toPoint
-import model.tuple.Vector.Companion.toVector
+
 import kotlin.math.sqrt
 
 data class Vector(
@@ -9,26 +8,23 @@ data class Vector(
     override val y: Double,
     override val z: Double
 ) : Tuple(x, y, z, 0.0) {
-    companion object {
-        fun toVector(other: Tuple) = Vector(other.x, other.y, other.z)
-    }
 
     constructor(x: Number, y: Number, z: Number) : this(x.toDouble(), y.toDouble(), z.toDouble())
-
+    constructor(t: Tuple) : this(t.x, t.y, t.z)
 
     override fun equals(other: Any?) = super.equals(other)
     override fun hashCode() = super.hashCode()
 
 
     override operator fun plus(other: Tuple) =
-        if (other.isVector()) toVector(super.plus(other)) else toPoint(super.plus(other))
+        if (other.isVector()) Vector(super.plus(other)) else Point(super.plus(other))
 
-    operator fun plus(other: Vector) = toVector(super.plus(other))
-    operator fun plus(other: Point) = toPoint(super.plus(other))
-    override operator fun minus(other: Tuple) = toVector(super.minus(other))
-    override operator fun unaryMinus() = toVector(super.unaryMinus())
-    override operator fun times(scalar: Double) = toVector(super.times(scalar))
-    override operator fun div(scalar: Double) = toVector(super.div(scalar))
+    operator fun plus(other: Vector) = Vector(super.plus(other))
+    operator fun plus(other: Point) = Point(super.plus(other))
+    override operator fun minus(other: Tuple) = Vector(super.minus(other))
+    override operator fun unaryMinus() = Vector(super.unaryMinus())
+    override operator fun times(scalar: Double) = Vector(super.times(scalar))
+    override operator fun div(scalar: Double) = Vector(super.div(scalar))
 
 
     fun magnitude(): Double = sqrt(x * x + y * y + z * z)
@@ -47,5 +43,5 @@ data class Vector(
     )
 }
 
-operator fun Double.times(other: Vector) = toVector(this.times(other as Tuple))
-operator fun Double.div(other: Vector) = toVector(this.div(other as Tuple))
+operator fun Double.times(other: Vector) = Vector(this.times(other as Tuple))
+operator fun Double.div(other: Vector) = Vector(this.div(other as Tuple))

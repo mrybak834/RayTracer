@@ -1,6 +1,10 @@
 package model.matrix
 
+import model.matrix.Matrix.Companion.identity
+import model.ray.Ray
+import model.tuple.Point
 import model.tuple.Tuple
+import model.tuple.Vector
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -60,12 +64,27 @@ class Transformation {
             )
         )
 
-        fun Matrix.transform(tuple: Tuple) = this * tuple
-        fun Matrix.translate(x: Number, y: Number, z: Number) = translation(x, y, z) * this
-        fun Matrix.scale(x: Number, y: Number, z: Number) = scaling(x, y, z) * this
-        fun Matrix.rotateX(theta: Number) = rotationX(theta) * this
-        fun Matrix.rotateY(theta: Number) = rotationY(theta) * this
-        fun Matrix.rotateZ(theta: Number) = rotationZ(theta) * this
-        fun Matrix.shear(xy: Number, xz: Number, yx: Number, yz: Number, zx: Number, zy: Number) = shearing(xy, xz, yx, yz, zx, zy) * this
+        fun transform(tuple: Tuple, transformation: Matrix) = transformation * tuple
+        fun transform(ray: Ray, transformation: Matrix) = Ray(
+            Point(transform(ray.origin, transformation)),
+            Vector(transform(ray.direction, transformation))
+        )
+
+        fun translate(x: Number, y: Number, z: Number) = translation(x, y, z) * identity
+        fun scale(x: Number, y: Number, z: Number) = scaling(x, y, z) * identity
+        fun rotateX(theta: Number) = rotationX(theta) * identity
+        fun rotateY(theta: Number) = rotationY(theta) * identity
+        fun rotateZ(theta: Number) = rotationZ(theta) * identity
+        fun shear(xy: Number, xz: Number, yx: Number, yz: Number, zx: Number, zy: Number) =
+            shearing(xy, xz, yx, yz, zx, zy) * identity
+
+        fun Matrix.translate(x: Number, y: Number, z: Number) = Transformation.translate(x, y, z) * this
+        fun Matrix.scale(x: Number, y: Number, z: Number) = Transformation.scale(x, y, z) * this
+        fun Matrix.rotateX(theta: Number) = Transformation.rotateX(theta) * this
+        fun Matrix.rotateY(theta: Number) = Transformation.rotateY(theta) * this
+        fun Matrix.rotateZ(theta: Number) = Transformation.rotateZ(theta) * this
+        fun Matrix.shear(xy: Number, xz: Number, yx: Number, yz: Number, zx: Number, zy: Number) =
+            Transformation.shear(xy, xz, yx, yz, zx, zy) * this
+
     }
 }

@@ -27,4 +27,6 @@ data class Ray(
 
         return getIntersections(intersection1, intersection2)
     }
+
+    companion object
 }
