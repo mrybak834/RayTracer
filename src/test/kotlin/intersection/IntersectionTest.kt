@@ -1,9 +1,10 @@
 package intersection
 
 import model.intersection.Intersection
-import model.intersection.Intersection.Companion.getHit
+import model.intersection.Intersection.Companion.hit
 import model.intersection.Intersection.Companion.getIntersections
 import model.ray.Ray
+import model.ray.Ray.Companion.intersect
 import model.sphere.Sphere
 import model.tuple.Point
 import model.tuple.Vector
@@ -37,7 +38,7 @@ internal class IntersectionTest {
     fun `Intersect sets the object on the intersection`() {
         val r = Ray(Point(0, 0, -5), Vector(0, 0, 1))
         val s = Sphere()
-        val xs = r.intersect(s)
+        val xs = intersect(r,s)
         assertTrue(xs.count() == 2)
         assertTrue(xs[0].item === s)
         assertTrue(xs[1].item === s)
@@ -49,7 +50,7 @@ internal class IntersectionTest {
         val i1 = Intersection(1, s)
         val i2 = Intersection(2, s)
         val xs = getIntersections(i2, i1)
-        val i = xs.getHit()
+        val i = xs.hit()
         assertTrue(i === i1)
     }
 
@@ -59,7 +60,7 @@ internal class IntersectionTest {
         val i1 = Intersection(-1, s)
         val i2 = Intersection(1, s)
         val xs = getIntersections(i2, i1)
-        val i = xs.getHit()
+        val i = xs.hit()
         assertTrue(i === i2)
     }
 
@@ -69,7 +70,7 @@ internal class IntersectionTest {
         val i1 = Intersection(-2, s)
         val i2 = Intersection(-1, s)
         val xs = getIntersections(i2, i1)
-        val i = xs.getHit()
+        val i = xs.hit()
         assertTrue(i === null)
     }
 
@@ -81,7 +82,7 @@ internal class IntersectionTest {
         val i3 = Intersection(-3, s)
         val i4 = Intersection(2, s)
         val xs = getIntersections(i1, i2, i3, i4)
-        val i = xs.getHit()
+        val i = xs.hit()
         assertTrue(i === i4)
     }
 

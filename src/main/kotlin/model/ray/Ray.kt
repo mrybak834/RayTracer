@@ -2,6 +2,8 @@ package model.ray
 
 import model.intersection.Intersection
 import model.intersection.Intersection.Companion.getIntersections
+import model.matrix.Matrix.Companion.inverse
+import model.matrix.Transformation.Companion.transform
 import model.sphere.Sphere
 import model.tuple.Point
 import model.tuple.Vector
@@ -13,20 +15,25 @@ data class Ray(
 ) {
     fun position(t: Number) = origin + (direction * t.toDouble())
 
-    fun intersect(sphere: Sphere): List<Intersection> {
-        val sphereToRay = origin - sphere.center
-        val a = direction.dot(direction)
-        val b = 2 * direction.dot(sphereToRay)
-        val c = sphereToRay.dot(sphereToRay) - 1
-        val discriminant = b * b - 4 * a * c
+    companion object {
 
-        if (discriminant < 0) return listOf()
+        /**
+         * This assumes we are using a unit sphere
+         */
+        fun intersect(ray: Ray, sphere: Sphere): List<Intersection> {
+            val (origin, direction) = transform(ray, inverse(sphere.transform))
+            val sphereToRay = origin - sphere.origin
+            val a = direction.dot(direction)
+            val b = 2 * direction.dot(sphereToRay)
+            val c = sphereToRay.dot(sphereToRay) - 1
+            val discriminant = b * b - 4 * a * c
 
-        val intersection1 = Intersection((-b - sqrt(discriminant)) / (2 * a), sphere)
-        val intersection2 = Intersection((-b + sqrt(discriminant)) / (2 * a), sphere)
+            if (discriminant < 0) return listOf()
 
-        return getIntersections(intersection1, intersection2)
+            val intersection1 = Intersection((-b - sqrt(discriminant)) / (2 * a), sphere)
+            val intersection2 = Intersection((-b + sqrt(discriminant)) / (2 * a), sphere)
+
+            return getIntersections(intersection1, intersection2)
+        }
     }
-
-    companion object
 }

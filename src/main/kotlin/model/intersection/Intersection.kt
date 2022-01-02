@@ -11,7 +11,7 @@ data class Intersection(
             return listOf(*intersection)
         }
 
-        fun List<Intersection>.getHit(): Intersection? {
+        fun List<Intersection>.hit(): Intersection? {
             return this.filter { it.t >= 0 }.minByOrNull { it.t }
         }
     }
